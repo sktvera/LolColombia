@@ -6,7 +6,7 @@ const path = require('path');
 
 app.use(require('./routes/index.routes'));
 
-
+/* INICIA EL SERVIDOR CON = NPM RUN START */
 app.listen(3000,()=>{
   console.log('servidor a la espera de conexiones')
 })
