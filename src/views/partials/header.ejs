@@ -9,7 +9,18 @@
             <div class="container-fluid">
 
                <!--  icono con codigo aqui -->
-             
+
+               <label for="exampleDataList" class="form-label">Buscar Campeon</label>
+<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+<datalist id="datalistOptions">
+  <option value="San Francisco">
+  <option value="New York">
+  <option value="Seattle">
+  <option value="Los Angeles">
+  <option value="Chicago">
+</datalist>
+
+              
               </button>
               <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
@@ -21,11 +32,11 @@
                         <i class="fa-solid fa-dragon">Menu</i>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                      <li><a class="dropdown-item" href="/src/views/login.ejs">Login</a></li>
-                      <li><a class="dropdown-item" href="/src/views/register.ejs">Register</a></li>
-                      <li><a class="dropdown-item" href="/src/views/index.ejs">Home</a></li>
+                      <li><a class="dropdown-item" href="/home/login">Login</a></li>
+                      <li><a class="dropdown-item" href="/home/register">Register</a></li>
+                      <li><a class="dropdown-item" href="/home">Home</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" href="/users/perfiles">campeones</a></li>
                     </ul>
                   </li>
                  
