@@ -7,7 +7,7 @@ const app = express()
 
 /* Middlewares */
 app.use(express.static(path.join(__dirname, '../public')))
-
+app.use(express.json());
 app.use(methodOverride('_method')); // Para poder pisar el method="POST" en el formulario por PUT y DELETE
 
 /* view engine setup */
@@ -19,6 +19,7 @@ app.set('view engine', 'ejs')
 
 const indexRoutes = require('./routes/indexRoutes.js')
 const usersRoutes = require ('./routes/usersRoutes.js')
+const productsRouter = require('./routes/products'); // Rutas /products
 
 /* INICIA EL SERVIDOR CON = NPM RUN START */
 app.listen(3000,()=>{
@@ -30,6 +31,7 @@ app.listen(3000,()=>{
 //usar localhost:3000/
 app.use('/home',indexRoutes)
 app.use('/users',usersRoutes)
+app.use('/products', productsRouter);
 
 
 

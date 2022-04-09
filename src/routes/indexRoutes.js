@@ -9,6 +9,7 @@ router.get('/',indexController.home)
 router.get('/login',indexController.login);
 
 router.get('/register',indexController.register);
+router.post('/create',indexController.create)
 
 
 

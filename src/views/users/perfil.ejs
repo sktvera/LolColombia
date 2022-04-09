@@ -20,23 +20,49 @@
 </head>
 <body>
 
-
-<% for(let i = 0; i < datos.length; i ++) { %>
-	<h1>Nombre: <%=datos[i].nombre %></h1>
 	
-	<h3>tipo: <%=datos[i].tipo %></h3>
-	<h3>vida: <%=datos[i].vida %></h3>
-	<h3>mana: <%=datos[i].apellido %></h3>
-	<h3>regMana: <%=datos[i].regMana %></h3>
-	<h3>velocidad: <%=datos[i].velocidad %></h3>
-	<h3>daño: <%=datos[i].daño %></h3>
-	<h3>velAtaque: <%=datos[i].velAtaque %></h3>
-	<h3>rango: <%=datos[i].rango %></h3>
-	<h3>resMagia: <%=datos[i].resMagia %></h3>
+	<main role="main">
 
-<a href="/users/campeones/<%=datos[i].id %>"><img src="/images/<%=datos[i].imagen %>" alt="<%=datos[i].id %>"> </a>
-	 
-<% } %>
+
+  
+		<div class="album py-5 bg-light">
+		  <div class="container">
+  
+			<div class="row">
+			  <% for(let i = 0; i < datos.length; i ++) { %>
+			  <div class="col-md-4">
+				<div class="card mb-4 box-shadow">
+				  <a href="/users/campeones/<%=datos[i].id %>"><img class="img-thumbnail" src="/images/<%=datos[i].imagen %>" alt="<%=datos[i].id %>"> </a>
+				  <div class="card-body">
+					<h3><%=datos[i].nombre %></h3>
+					<p class="card-text">Estadisticas: </p> 
+					<ul>
+					  <li>tipo: <%=datos[i].tipo %></li>
+					  <li>vida: <%=datos[i].vida %></li>
+					  <li>mana: <%=datos[i].apellido %></li>
+					  <li>regMana: <%=datos[i].regMana %></li>
+					  <li>velocidad: <%=datos[i].velocidad %></li>
+					  <li>daño: <%=datos[i].daño %></li>
+					  <li>velAtaque: <%=datos[i].velAtaque %></li>
+					  <li>rango: <%=datos[i].rango %></li>
+					  <li>resMagia: <%=datos[i].resMagia %></li>
+					</ul>
+					<div class="d-flex justify-content-between align-items-center">
+					  <div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+					  </div>
+					  <small class="text-muted">9 mins</small>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  <% } %>
+			</div>
+		  </div>
+		</div>
+  
+	  </main>
 </body>
 </html>
 
