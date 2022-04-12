@@ -68,5 +68,17 @@
   "rango": 232,
   "resMagia": 46676,
   "imagen": "Garen.png"
+ },
+ {
+  "id": 6,
+  "imagen": "Draven.png"
+ },
+ {
+  "id": 7,
+  "imagen": "Draven.png"
+ },
+ {
+  "id": 8,
+  "imagen": "Draven.png"
  }
 ]

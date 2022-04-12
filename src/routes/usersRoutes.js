@@ -4,8 +4,12 @@ const express = require('express');
 
 /* GET home page. */ 
 /* http: *///localhost/users/campeones/1
-router.get('/campeones/:id',usersController.campeones)
-router.get('/perfiles',usersController.perfiles)
+
+
+router.get('/login',usersController.login);
+router.get('/register',usersController.register);
+
+
 
 
 

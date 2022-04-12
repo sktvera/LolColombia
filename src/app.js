@@ -11,15 +11,14 @@ app.use(express.json());
 app.use(methodOverride('_method')); // Para poder pisar el method="POST" en el formulario por PUT y DELETE
 
 /* view engine setup */
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
-
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Route System require and use()
 
 const indexRoutes = require('./routes/indexRoutes.js')
 const usersRoutes = require ('./routes/usersRoutes.js')
-const productsRouter = require('./routes/products'); // Rutas /products
+ const guiasRoutes = require('./routes/guiasRoutes'); 
 
 /* INICIA EL SERVIDOR CON = NPM RUN START */
 app.listen(3000,()=>{
@@ -29,12 +28,12 @@ app.listen(3000,()=>{
 
 //Ruta global http://localhost/home
 //usar localhost:3000/
-app.use('/home',indexRoutes)
+app.use('/',indexRoutes)
 app.use('/users',usersRoutes)
-app.use('/products', productsRouter);
+app.use('/guias', guiasRoutes);
 
 
-
+/* guias//guiaCampeones/:id */
 
 
 
