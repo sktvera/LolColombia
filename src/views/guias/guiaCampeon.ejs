@@ -21,7 +21,7 @@
 
     <%- include('../partials/header') %>
     
-    <h1>Nombre: <%= campeonDetalle.tipo%></h1>
+    <h1>Nombre: <%= campeonDetalle.nombre%></h1>
     <h3>tipo: <%=campeonDetalle.tipo %></h3>
       <h3>vida: <%=campeonDetalle.vida %></h3>
       <h3>mana: <%=campeonDetalle.mana %></h3>
@@ -33,6 +33,14 @@
       <h3>resMagia: <%=campeonDetalle.resMagia %></h3>
     
     <a href="/campeones/<%=campeonDetalle.id %>"><img src="/images/<%=campeonDetalle.imagen %>" alt="<%=campeonDetalle.id %>"> </a>
+
+
+    
+    <a href="/guias/edit/<%=campeonDetalle.id%>" class="action-button edit">EDITAR PRODUCTO</a>
+    <form action="/guias/delete/<%=campeonDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+      <button type="submit" class="action-button delete">ELIMINAR</button>
+    </form>
+    
        
     
 

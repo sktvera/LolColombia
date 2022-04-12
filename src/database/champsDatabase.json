@@ -70,15 +70,17 @@
   "imagen": "Garen.png"
  },
  {
-  "id": 6,
-  "imagen": "Draven.png"
- },
- {
-  "id": 7,
-  "imagen": "Draven.png"
- },
- {
-  "id": 8,
+  "id": 12,
+  "nombre": "santiago zapata",
+  "tipo": "adc",
+  "vida": "Inmortal",
+  "mana": "100%",
+  "regMana": "100%",
+  "velocidad": "mas rapido que goku",
+  "daño": "one punch",
+  "velAtaque": "velocidad de la luz",
+  "rango": "te alcanza donde sea",
+  "resMagia": "indestructible",
   "imagen": "Draven.png"
  }
 ]

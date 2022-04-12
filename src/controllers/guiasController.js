@@ -3,6 +3,7 @@ const path = require('path');
 
 const champsFilePath = path.join(__dirname,'../database/champsDatabase.json')
 const champs = JSON.parse(fs.readFileSync(champsFilePath,'utf-8'));
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
 const controller = {
@@ -10,14 +11,36 @@ const controller = {
 	listaDeCampeones:function(req,res){
 
 		
-		res.render('guias/guiasList',{datos:champs}); 
+		res.render("guias/guiasList",{datos:champs})
 	   
 	},
+
+	guiaCampeon: function(req,res) {
+
+
+
+		let idCampeonSeleccionado = req.params.id;
+		let campeonEncontrado = null;
+	 
+		for(let p of champs){
+			if(p.id == idCampeonSeleccionado ){
+				campeonEncontrado = p;
+				break
+
+			}
+		}
+	
+		
+
+		 res.render("guias/guiaCampeon",{campeonDetalle:campeonEncontrado})
+	   },
+		
+		
 
 	createForm: (req, res) => {
 			
 	
-		res.render('guias/guiaCreate')
+		res.render("guias/guiaCreate")
 	
 			   
 			},
@@ -33,7 +56,7 @@ const controller = {
 		// forma 1 
 
 		let nuevoProducto = {
-			id: campeon[campeon.length-1].id + 1,
+			id: idCampeonNuevo,
 			nombre: req.body.nombre,
 			tipo: req.body.tipo,
 			vida: req.body.vida,
@@ -55,35 +78,88 @@ const controller = {
 		// nuevoProducto2.image = "img-camara-nikon.jpg";
 		// console.log(nuevoProducto2);
 
-console.log(req.body)
+
 		campeon.push(nuevoProducto);
 	
 		fs.writeFileSync(champsFilePath , JSON.stringify(campeon,null,' '));
 
 		res.redirect('/home');
 
+		console.log(nuevoProducto)
+
 	},
 
-guiaCampeon: function(req, res) {
+	edit: (req, res) => {
+		
+		let idcampeonSeleccionado= req.params.id;
+		let campeonEncontrado=null;
 
-
-
-	let idCampeonSeleccionado = req.params.id;
-	let campeonEncontrado = null;
- 
-	for(let i = 0; i < champs.length; i++){
-		if(champs[i].id == idCampeonSeleccionado ){
-			campeonEncontrado = champs[i];
-			break
+		for (let p of champs){
+			if (p.id==idcampeonSeleccionado){
+				campeonEncontrado=p;
+				break;
+			}
 		}
+
+		res.render('guias/guiaEditForm',{campeon: campeonEncontrado});
+
+	},
+	// Update - Method to update
+	update: (req, res) => {
+	
+		let campeonEditado=req.body;
+
+		let idCampeonBuscado = req.params.id;
+
+		let campeon = champs;
+
+		for (let p of campeon){
+			if (p.id==idCampeonBuscado){
+				p.nombre=campeonEditado.nombre;
+				p.tipo=campeonEditado.tipo;
+				p.vida=campeonEditado.vida;
+				p.mana=campeonEditado.regMana;
+				p.regMana=campeonEditado.regMana;
+				p.velocidad=campeonEditado.velocidad;
+				p.daño=campeonEditado.daño;
+				p.velAtaque=campeonEditado.velAtaque;
+				p.rango=campeonEditado.rango;
+				p.resMagia=campeonEditado.resMagia;
+
+				break;
+			}
+		}
+
+		fs.writeFileSync(champsFilePath, JSON.stringify(campeon,null,' '));
+
+		res.redirect("/home");
+
+	
+
+	},
+
+	// Delete - Delete one product from DB
+	destroy : (req, res) => {
+		let idCampeonSeleccionado = req.params.id;
+		let campeonEncontrado=null;
+
+		for (let p of champs){
+			if (p.id==idCampeonSeleccionado){
+				campeonEncontrado=p;
+				break;
+			}
+		}
+
+		let campeon2 = champs.filter(function(e){
+			return e.id!=campeonEncontrado.id;
+		})
+
+		fs.writeFileSync(champsFilePath, JSON.stringify(campeon2,null,' '));
+
+		res.redirect("/home");
 	}
 
-	
- 
-	 res.render('guias/guiaCampeon',{campeonDetalle:campeonEncontrado})
-   }
-	
-	
+
 }
 
 module.exports = controller;
