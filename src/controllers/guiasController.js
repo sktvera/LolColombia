@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const champsFilePath = path.join(__dirname,'../database/champsDatabase.json')
+const champsFilePath = path.join(__dirname,'../database/champions.json')
 const champs = JSON.parse(fs.readFileSync(champsFilePath,'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 

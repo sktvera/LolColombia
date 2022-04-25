@@ -4,6 +4,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+const rutaCampeones = require('./routes/championRouter');
 
 
 
@@ -37,9 +38,10 @@ app.listen(3500,()=>{
 
 //Ruta global http://localhost/home
 //usar localhost:3000/
-app.use('/',indexRoutes)
-app.use('/users',usersRoutes)
+app.use('/',indexRoutes);
+app.use('/users',usersRoutes);
 app.use('/guias', guiasRoutes);
+app.use('/campeones', rutaCampeones);
 
 
 // ************ DON'T TOUCH FROM HERE ************
