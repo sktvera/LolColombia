@@ -5,7 +5,7 @@ const express = require('express');
 /* GET home page. */ 
 /* http: *///localhost/home/register
 router.get('/',indexController.home);
-router.get('/home',indexController.home)
+router.get('/home',indexController.home);
 
 
 module.exports = router;
