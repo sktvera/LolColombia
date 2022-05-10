@@ -1,14 +1,9 @@
-.col-md-2{
-    background-color: #fff;
-}
-.card-body {
-    padding: 0.2rem;
-}
-
-.card {
-    border: 0px;
-}
-.img-thumbnail {
-    width: 150px;
-};
-
+body {
+    font-family: "Bahnschrift", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: normal;
+    background: #fafafa;
+    color: gray;
+    text-align: left;
+  }

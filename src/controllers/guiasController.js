@@ -46,17 +46,28 @@ const controller = {
 			},
 
     create: (req, res) => {
-			
 		
-		let campeon = champs;
+		
+	
+		 
+	
+		idNuevo=0;
 
-		let idCampeonNuevo = campeon[campeon.length-1].id + 1;
+		for (let s of champs){
+			if (idNuevo<s.id){
+				idNuevo=s.id;
+			}
+		}
+
+		idNuevo++;
+
+		let nombreImagen = req.file.filename;
 
 
 		// forma 1 
 
 		let nuevoProducto = {
-			id: idCampeonNuevo,
+			id: idNuevo,
 			nombre: req.body.nombre,
 			tipo: req.body.tipo,
 			vida: req.body.vida,
@@ -67,7 +78,7 @@ const controller = {
 			velAtaque: req.body.velAtaque,
 			rango: req.body.rango,
 			resMagia: req.body.resMagia,
-			imagen:"Draven.png"
+			imagen:nombreImagen
 		};
 
 
@@ -85,7 +96,10 @@ const controller = {
 
 		res.redirect('/home');
 
-		console.log(nuevoProducto)
+		console.log(nuevoProducto) 
+
+
+
 
 	},
 

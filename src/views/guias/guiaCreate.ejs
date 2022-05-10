@@ -21,7 +21,7 @@
 
     <%- include('../partials/header') %>
 
-    <form action="/guias/create" method="POST">
+    <form action="/guias/create" method="POST" enctype="multipart/form-data">
         <div class="row product-detail">
             <div class="col-12 col-md-6">
                 <label for="nombre" class="form-label">Nombre del campeon:</label>
@@ -71,6 +71,11 @@
             <div class="col-12 col-md-6">
                 <label for="resMagia" class="form-label">resistecia a la magia:</label>
                 <input type="text" id="resMagia" name="resMagia" placeholder=" ingresa dato" class="form-input">
+            </div>
+            <div class="col-12 col-md-6">
+                <input type="file" name="imageGuiaCreate">
+
+
             </div>
     
             <div class="col-12">
