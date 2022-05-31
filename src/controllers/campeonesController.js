@@ -6,7 +6,7 @@ const campeonesController = {
     detalle : function(req, res) {
         var champ = req.params.id;
         const path = campeones.data[`${champ}`];
-        if (campeones.data[`${champ}`] !== undefined){
+        if (path !== undefined){
         res.render('campeonDetalle', {'hola': campeones, 'champ': champ, 'path' : path});
         }
         else {

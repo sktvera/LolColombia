@@ -1,5 +1,6 @@
+
 .col-md-2{
-    background-color: #fff;
+    background-color: #fff !important;
 }
 .card-body {
     padding: 0.2rem;
@@ -8,6 +9,12 @@
 .card {
     border: 0px;
 }
+
+.nav-item {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
 .img-thumbnail {
     width: 150px;
 };
