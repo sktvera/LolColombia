@@ -1,23 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const champsFilePath = path.join(__dirname,'../database/champsDatabase.json')
+const champsFilePath = path.join(__dirname,'../database/champions.json')
 const champs = JSON.parse(fs.readFileSync(champsFilePath,'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
 const controller = {
 
-	listaDeCampeones:function(req,res){
+	listaDeCampeones: function(req,res){
 
-		
 		res.render("guias/guiasList",{datos:champs})
-	   
+
 	},
-
 	guiaCampeon: function(req,res) {
-
-
 
 		let idCampeonSeleccionado = req.params.id;
 		let campeonEncontrado = null;
@@ -26,26 +22,18 @@ const controller = {
 			if(p.id == idCampeonSeleccionado ){
 				campeonEncontrado = p;
 				break
-
 			}
 		}
-	
-		
 
-		 res.render("guias/guiaCampeon",{campeonDetalle:campeonEncontrado})
+		res.render("guias/guiaCampeon",{campeonDetalle:campeonEncontrado})
 	   },
-		
-		
 
 	createForm: (req, res) => {
-			
-	
-		res.render("guias/guiaCreate")
-	
-			   
-			},
 
+		res.render("guias/guiaCreate")
+		},
     create: (req, res) => {
+<<<<<<< HEAD
 		
 		
 	
@@ -62,7 +50,11 @@ const controller = {
 		idNuevo++;
 
 		let nombreImagen = req.file.filename;
+=======
 
+		let campeon = champs;
+		let idCampeonNuevo = campeon[campeon.length-1].id + 1;
+>>>>>>> 414482c258eee9ee0ff0752bea98bc8e466b258d
 
 		// forma 1 
 
@@ -81,30 +73,28 @@ const controller = {
 			imagen:nombreImagen
 		};
 
-
 		// forma 2
-
 		// let nuevoProducto2 = req.body;
 		// nuevoProducto2.id= idNuevo;
 		// nuevoProducto2.image = "img-camara-nikon.jpg";
 		// console.log(nuevoProducto2);
-
-
 		campeon.push(nuevoProducto);
-	
 		fs.writeFileSync(champsFilePath , JSON.stringify(campeon,null,' '));
-
 		res.redirect('/home');
+<<<<<<< HEAD
 
 		console.log(nuevoProducto) 
 
 
 
 
+=======
+		console.log(nuevoProducto)
+>>>>>>> 414482c258eee9ee0ff0752bea98bc8e466b258d
 	},
 
 	edit: (req, res) => {
-		
+
 		let idcampeonSeleccionado= req.params.id;
 		let campeonEncontrado=null;
 
@@ -113,18 +103,15 @@ const controller = {
 				campeonEncontrado=p;
 				break;
 			}
-		}
+		};
 
 		res.render('guias/guiaEditForm',{campeon: campeonEncontrado});
-
 	},
-	// Update - Method to update
-	update: (req, res) => {
+
+	update: (req, res) => {	// Update - Method to update
 	
-		let campeonEditado=req.body;
-
+		let campeonEditado = req.body;
 		let idCampeonBuscado = req.params.id;
-
 		let campeon = champs;
 
 		for (let p of campeon){
@@ -139,7 +126,6 @@ const controller = {
 				p.velAtaque=campeonEditado.velAtaque;
 				p.rango=campeonEditado.rango;
 				p.resMagia=campeonEditado.resMagia;
-
 				break;
 			}
 		}
@@ -147,15 +133,12 @@ const controller = {
 		fs.writeFileSync(champsFilePath, JSON.stringify(campeon,null,' '));
 
 		res.redirect("/home");
-
-	
-
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		let idCampeonSeleccionado = req.params.id;
-		let campeonEncontrado=null;
+		let campeonEncontrado = null;
 
 		for (let p of champs){
 			if (p.id==idCampeonSeleccionado){
@@ -169,14 +152,8 @@ const controller = {
 		})
 
 		fs.writeFileSync(champsFilePath, JSON.stringify(campeon2,null,' '));
-
 		res.redirect("/home");
 	}
-
-
 }
 
 module.exports = controller;
-
-
-

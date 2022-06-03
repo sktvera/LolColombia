@@ -5,9 +5,12 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 414482c258eee9ee0ff0752bea98bc8e466b258d
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -26,9 +29,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Route System require and use()
 
-const indexRoutes = require('./routes/indexRoutes.js')
-const usersRoutes = require ('./routes/usersRoutes.js')
- const guiasRoutes = require('./routes/guiasRoutes'); 
+const indexRoutes = require('./routes/indexRoutes.js');
+const usersRoutes = require ('./routes/usersRoutes.js');
+const guiasRoutes = require('./routes/guiasRoutes'); 
+const rutaCampeones = require('./routes/championRouter');
 
 /* INICIA EL SERVIDOR CON = NPM RUN START */
 app.listen(3500,()=>{
@@ -38,9 +42,10 @@ app.listen(3500,()=>{
 
 //Ruta global http://localhost/home
 //usar localhost:3000/
-app.use('/',indexRoutes)
-app.use('/users',usersRoutes)
+app.use('/',indexRoutes);
+app.use('/users',usersRoutes);
 app.use('/guias', guiasRoutes);
+app.use('/campeones', rutaCampeones);
 
 
 // ************ DON'T TOUCH FROM HERE ************

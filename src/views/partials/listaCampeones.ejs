@@ -1,0 +1,21 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+      <% let x = 6; let j = 0 %>
+      <% for(let i = 0; i < 27; i++) { %>
+        <div class="row">
+          <% for(j; j < x && j < listaDeCampeones.length; j++) { %>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card mb-4 box-shadow">
+                <a href="/campeones/<%= listaDeCampeones[j]%>"><img class="img-thumbnail" src="/images/<%= listaDeCampeones[j]%>.png" alt="<%= listaDeCampeones[j]%>"></a>
+                <div class="card-body">
+                  <h3><%= listaDeCampeones[j]%></h3>
+                </div>
+              </div>
+            </div>
+          <% } %>
+          <% j = x %>
+          <% x = x + 6 %>
+        </div>
+      <% } %>
+  </div>
+</div>
