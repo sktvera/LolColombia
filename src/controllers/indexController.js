@@ -1,18 +1,12 @@
-const fs = require('fs');
-const path = require('path');
-
-const champsFilePath = path.join(__dirname,'../database/champsDatabase.json')
-/* const champs = JSON.parse(fs.readFileSync(champsFilePath,'utf-8')); */
-
+const champs = require('../database/champions');
+const campeones = champs.campeones;
+const listaDeCampeones = champs.champName;
 
 let indexController = {
     home: function(req, res) {
         /* Mostrar el home */
-
-        const champs = JSON.parse(fs.readFileSync(champsFilePath,'utf-8'));
-        res.render('index');
+        res.render('index', {'campeones': campeones, 'listaDeCampeones' : listaDeCampeones});
     }
-
-
 }
-module.exports = indexController
+
+module.exports = indexController;

@@ -19,21 +19,24 @@ const uploadFile = multer({storage:configuracionImagen})
 
 
 
+<<<<<<< HEAD
 // /*** CREATE ONE PRODUCT ***/ 
 router.post('/create',uploadFile.single('imageGuiaCreate'), guiasController.create); 
+=======
+// /*** Crear una guia ***/ 
+router.post('/create', guiasController.create); 
+>>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 router.get('/createForm', guiasController.createForm); 
 
-// /*** GET ONE PRODUCT ***/ 
+// /*** Obtener la guia de un campeon ***/ 
 router.get('/guiaCampeon/:id',guiasController.guiaCampeon)
 
-// /*** EDIT ONE PRODUCT ***/ 
+// /*** Editar una guia ***/ 
 router.get('/edit/:id', guiasController.edit); 
 router.put('/edit/:id',guiasController.update);
 
-// /*** DELETE ONE PRODUCT***/ 
+// /*** Borrar una guia ***/ 
 router.delete('/delete/:id', guiasController.destroy); 
 
-
-router.get('/listaDeCampeones',guiasController.listaDeCampeones)
 
 module.exports = router;

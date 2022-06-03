@@ -5,17 +5,20 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 // ************ express() - (don't touch) ************
 const app = express();
 
 // ************ Middlewares - (don't touch) ************
 app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
-app.use(logger('dev'));
 app.use(express.json());
+app.use(logger('dev'));
 app.use(cookieParser());
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
@@ -26,9 +29,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Route System require and use()
 
-const indexRoutes = require('./routes/indexRoutes.js')
-const usersRoutes = require ('./routes/usersRoutes.js')
- const guiasRoutes = require('./routes/guiasRoutes'); 
+const indexRoutes = require('./routes/indexRoutes.js');
+const usersRoutes = require ('./routes/usersRoutes.js');
+const guiasRoutes = require('./routes/guiasRoutes'); 
+const rutaCampeones = require('./routes/championRouter');
 
 /* INICIA EL SERVIDOR CON = NPM RUN START */
 app.listen(3500,()=>{
@@ -38,14 +42,17 @@ app.listen(3500,()=>{
 
 //Ruta global http://localhost/home
 //usar localhost:3000/
-app.use('/',indexRoutes)
-app.use('/users',usersRoutes)
+app.use('/',indexRoutes);
+app.use('/users',usersRoutes);
 app.use('/guias', guiasRoutes);
+app.use('/campeones', rutaCampeones);
 
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
-app.use((req, res, next) => next(createError(404)));
+app.use((req, res, next) => {
+  next(createError(404))
+});
 
 // ************ error handler ************
 app.use((err, req, res, next) => {

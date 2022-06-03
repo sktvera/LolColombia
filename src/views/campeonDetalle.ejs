@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+    <title>
+        <%= (`${champ}`)%> - LoLColombia
+    </title>
+    </head>
+
+    <body>
+        <%- include('./partials/header') %>
+            <img src="/images/champions/<%= (`${path.image['full']}`) %>" alt="<%= (`${champ}`)%>">
+            <div>
+                <ul>
+                    <% for (const key in path) { %>
+                        <li>
+                            <%= (`${key}: ${path[key]}`) %>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+            <%- include('./partials/footer') %>
+    </body>
+
+</html>
