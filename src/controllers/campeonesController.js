@@ -20,4 +20,4 @@ const campeonesController = {
     }
 };
 
-module.exports= campeonesController;
+module.exports = campeonesController;
