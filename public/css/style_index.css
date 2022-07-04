@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+body {
+    font-family: "Bahnschrift", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: normal;
+    background: #fafafa;
+    color: gray;
+    text-align: left;
+  }
+=======
 
 .col-md-2{
     background-color: #fff !important;
@@ -19,3 +30,4 @@
     width: 150px;
 };
 
+>>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61

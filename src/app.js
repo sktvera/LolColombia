@@ -5,6 +5,12 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 // ************ express() - (don't touch) ************
 const app = express();
 
