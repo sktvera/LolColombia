@@ -5,12 +5,6 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -35,13 +29,13 @@ const guiasRoutes = require('./routes/guiasRoutes');
 const rutaCampeones = require('./routes/championRouter');
 
 /* INICIA EL SERVIDOR CON = NPM RUN START */
-app.listen(3500,()=>{
+app.listen(3300,()=>{
   console.log('servidor a la espera de conexiones')
 })
 
 
 //Ruta global http://localhost/home
-//usar localhost:3000/
+//usar localhost:3500/
 app.use('/',indexRoutes);
 app.use('/users',usersRoutes);
 app.use('/guias', guiasRoutes);

@@ -33,28 +33,9 @@ const controller = {
 		res.render("guias/guiaCreate")
 		},
     create: (req, res) => {
-<<<<<<< HEAD
-		
-		
-	
-		 
-	
-		idNuevo=0;
-
-		for (let s of champs){
-			if (idNuevo<s.id){
-				idNuevo=s.id;
-			}
-		}
-
-		idNuevo++;
-
-		let nombreImagen = req.file.filename;
-=======
 
 		let campeon = champs;
 		let idCampeonNuevo = campeon[campeon.length-1].id + 1;
->>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 
 		// forma 1 
 
@@ -81,16 +62,7 @@ const controller = {
 		campeon.push(nuevoProducto);
 		fs.writeFileSync(champsFilePath , JSON.stringify(campeon,null,' '));
 		res.redirect('/home');
-<<<<<<< HEAD
-
-		console.log(nuevoProducto) 
-
-
-
-
-=======
 		console.log(nuevoProducto)
->>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 	},
 
 	edit: (req, res) => {

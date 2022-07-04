@@ -19,13 +19,8 @@ const uploadFile = multer({storage:configuracionImagen})
 
 
 
-<<<<<<< HEAD
 // /*** CREATE ONE PRODUCT ***/ 
 router.post('/create',uploadFile.single('imageGuiaCreate'), guiasController.create); 
-=======
-// /*** Crear una guia ***/ 
-router.post('/create', guiasController.create); 
->>>>>>> 66a78192f79247b782d8fa19ef8aef952778da61
 router.get('/createForm', guiasController.createForm); 
 
 // /*** Obtener la guia de un campeon ***/ 
